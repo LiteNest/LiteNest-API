@@ -1,0 +1,57 @@
+package container.desktop.api.entity;
+
+import lombok.*;
+
+import java.util.List;
+
+public interface Network extends Entity {
+
+    /**
+     * 获取网络的地址
+     * @return 网络地址
+     */
+    String getAddr();
+
+    /**
+     * 获取网关地址
+     * @return 网关地址
+     */
+    String getGatewayAddr();
+
+    /**
+     * 获取网络驱动器模式
+     * @return 网络驱动器模式
+     */
+    NetworkDriver getNetworkDriver();
+
+    /**
+     * 获取连接在该网络上的容器的ID
+     * @return 连接在该网络上的容器的ID
+     */
+    List<String> getContainerIds();
+
+    /**
+     * 检查该网络是否是可被附加的
+     * @return 该网络是否是可被附加的
+     */
+    boolean isAttachable();
+
+    /**
+     * 网络驱动器模式枚举类
+     */
+    @AllArgsConstructor
+    @Getter
+    @SuppressWarnings("all")
+    enum NetworkDriver {
+
+        BRIDGE("bridge"),
+        HOST("host"),
+        OVERLAY("overlay"),
+        MACVLAN("macvlan"),
+        NONE("none"),
+        CUSTOM(null);
+
+        @Setter
+        private String name;
+    }
+}
