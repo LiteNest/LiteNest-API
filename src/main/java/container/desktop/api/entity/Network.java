@@ -13,6 +13,12 @@ public interface Network extends Entity {
     String getId();
 
     /**
+     * 获取网络的名称
+     * @return 网络名称
+     */
+    String getName();
+
+    /**
      * 获取网络的地址
      * @return 网络地址
      */
@@ -55,9 +61,16 @@ public interface Network extends Entity {
         OVERLAY("overlay"),
         MACVLAN("macvlan"),
         NONE("none"),
-        CUSTOM(null);
+        CUSTOM("");
 
         @Setter
         private String name;
+
+        public static NetworkDriver parse(String s) {
+            for (NetworkDriver constant : NetworkDriver.class.getEnumConstants()) {
+                if (constant.getName().equals(s)) return constant;
+            }
+            return null;
+        }
     }
 }

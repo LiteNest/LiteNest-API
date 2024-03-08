@@ -10,6 +10,8 @@ import java.util.List;
 
 public interface NetworkService<N extends Network> extends EntityService<N> {
 
+    void flush();
+
     /**
      * 列出所有网络
      * @return 网络列表

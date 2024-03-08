@@ -4,7 +4,6 @@ import container.desktop.api.entity.Container;
 import lombok.RequiredArgsConstructor;
 
 public interface ContainerService<C extends Container> extends EntityService<C>{
-
     /**
      * 创建容器
      * @param name 容器名称
