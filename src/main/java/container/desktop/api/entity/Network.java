@@ -7,6 +7,12 @@ import java.util.List;
 public interface Network extends Entity {
 
     /**
+     * 获取网络的ID
+     * @return 网络的ID
+     */
+    String getId();
+
+    /**
      * 获取网络的地址
      * @return 网络地址
      */

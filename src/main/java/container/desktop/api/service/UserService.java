@@ -2,8 +2,12 @@ package container.desktop.api.service;
 
 import container.desktop.api.entity.User;
 
+import java.util.List;
+
 public interface UserService<U extends User> extends EntityService<U>{
 
+    void deleteById(Long id);
+    List<? extends User> list();
     Status login(String username, String password);
     Status register(String username, String password);
     Status changePassword(String username, String password);

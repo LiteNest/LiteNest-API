@@ -6,7 +6,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public interface User extends Entity {
+public interface User extends Entity, Metadatable {
 
     /**
      * 获取用户的用户名
@@ -67,7 +67,9 @@ public interface User extends Entity {
      * @param role 角色
      * @return 用户是否持有某一角色
      */
-    boolean hasRole(Role role);
+    default boolean hasRole(Role role) {
+        return getRoles().contains(role);
+    };
 
     /**
      * 给用户添加容器
@@ -80,6 +82,8 @@ public interface User extends Entity {
      * @param role 角色
      */
     void addRole(Role role);
+
+
 
     @RequiredArgsConstructor
     @Getter
