@@ -33,5 +33,10 @@ public interface Image extends Entity {
     Integer getRemoteDesktopPort();
 
     boolean isAvailable();
-    boolean isShown();
+
+    /**
+     * 查询镜像是否为公共镜像
+     * @return 是否为公共镜像
+     */
+    boolean isPublic();
 }

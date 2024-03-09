@@ -1,6 +1,7 @@
 package container.desktop.api.service;
 
 import container.desktop.api.entity.Container;
+import container.desktop.api.exception.ContainerCreationException;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -48,7 +49,7 @@ public interface ContainerService<C extends Container> extends EntityService<C>{
                 Integer rootDisk,
                 Integer vcpu,
                 Integer RAM,
-                String command, @NotNull String username);
+                String command, @NotNull String username) throws ContainerCreationException;
 
     /**
      * 创建容器
@@ -66,7 +67,7 @@ public interface ContainerService<C extends Container> extends EntityService<C>{
                   Integer vcpu,
                   Integer RAM,
                   String command,
-                  @NotNull String username);
+                  @NotNull String username) throws ContainerCreationException;
 
     /**
      * 删除容器
