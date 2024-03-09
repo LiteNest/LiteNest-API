@@ -53,6 +53,7 @@ public interface Network extends Entity {
      * @return 该网络是否是可被附加的
      */
     boolean isAttachable();
+    boolean isShown();
 
     /**
      * 网络驱动器模式枚举类

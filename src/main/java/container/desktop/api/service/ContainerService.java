@@ -2,8 +2,34 @@ package container.desktop.api.service;
 
 import container.desktop.api.entity.Container;
 import lombok.RequiredArgsConstructor;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
+import java.util.Optional;
 
 public interface ContainerService<C extends Container> extends EntityService<C>{
+
+    /**
+     * 列出所有容器
+     * @return 所有容器构成的列表
+     */
+    List<? extends Container> list();
+
+    /**
+     * 根据ID查找某个容器
+     * @param id ID
+     * @return 容器
+     */
+    @Nullable
+    Container findById(String id);
+
+    /**
+     * 根据ID列表查找所有容器
+     * @param containerIds ID列表
+     * @return 根据ID列表查找到的所有容器
+     */
+    List<? extends Container> findByIds(List<String> containerIds);
+
     /**
      * 创建容器
      * @param name 容器名称
@@ -12,6 +38,7 @@ public interface ContainerService<C extends Container> extends EntityService<C>{
      * @param rootDisk 跟磁盘大小
      * @param vcpu 虚拟处理器数量
      * @param RAM 运行内存
+     * @param command 启动命令
      * @return 容器ID
      */
     String create(String name,
@@ -19,7 +46,8 @@ public interface ContainerService<C extends Container> extends EntityService<C>{
                 String networkId,
                 Integer rootDisk,
                 Integer vcpu,
-                Integer RAM);
+                Integer RAM,
+                @Nullable String command);
 
     /**
      * 创建容器
@@ -28,13 +56,15 @@ public interface ContainerService<C extends Container> extends EntityService<C>{
      * @param rootDisk 跟磁盘大小
      * @param vcpu 虚拟处理器数量
      * @param RAM 运行内存
+     * @param command 启动命令
      * @return 容器ID
      */
     String create(String imageId,
                 String networkId,
                 Integer rootDisk,
                 Integer vcpu,
-                Integer RAM);
+                Integer RAM,
+                @Nullable String command);
 
     /**
      * 将该容器连接到某网络

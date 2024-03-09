@@ -31,4 +31,7 @@ public interface Image extends Entity {
      * @return 对外远程桌面端口
      */
     Integer getRemoteDesktopPort();
+
+    boolean isAvailable();
+    boolean isShown();
 }
