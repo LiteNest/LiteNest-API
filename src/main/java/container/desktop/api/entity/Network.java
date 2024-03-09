@@ -19,6 +19,12 @@ public interface Network extends Entity {
     String getName();
 
     /**
+     * 获取网络可用状态
+     * @return 该网络是否可用
+     */
+    boolean isAvailable();
+
+    /**
      * 获取网络的地址
      * @return 网络地址
      */
