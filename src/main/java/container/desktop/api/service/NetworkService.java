@@ -11,6 +11,7 @@ import java.util.List;
 public interface NetworkService<N extends Network> extends EntityService<N> {
 
     void flush();
+    void flush(String networkId);
 
     /**
      * 列出所有网络
@@ -92,6 +93,7 @@ public interface NetworkService<N extends Network> extends EntityService<N> {
      * @return 网络ID
      */
     String create(String name, Network.NetworkDriver driver);
+    void start(String id);
 
     @AllArgsConstructor
     @Getter

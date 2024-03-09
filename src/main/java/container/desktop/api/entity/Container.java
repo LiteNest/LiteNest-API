@@ -38,4 +38,11 @@ public interface Container extends Entity {
      * @return 网络ID
      */
     List<String> getNetworkIds();
+
+    PowerStatus getPowerStatus();
+
+    enum PowerStatus {
+        POWER_OFF,
+        ACTIVE
+    }
 }
