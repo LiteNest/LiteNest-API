@@ -2,6 +2,7 @@ package container.desktop.api.service;
 
 import container.desktop.api.entity.Container;
 import lombok.RequiredArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -47,7 +48,7 @@ public interface ContainerService<C extends Container> extends EntityService<C>{
                 Integer rootDisk,
                 Integer vcpu,
                 Integer RAM,
-                @Nullable String command);
+                String command, @NotNull String username);
 
     /**
      * 创建容器
@@ -60,11 +61,12 @@ public interface ContainerService<C extends Container> extends EntityService<C>{
      * @return 容器ID
      */
     String create(String imageId,
-                String networkId,
-                Integer rootDisk,
-                Integer vcpu,
-                Integer RAM,
-                @Nullable String command);
+                  String networkId,
+                  Integer rootDisk,
+                  Integer vcpu,
+                  Integer RAM,
+                  String command,
+                  @NotNull String username);
 
     /**
      * 将该容器连接到某网络
