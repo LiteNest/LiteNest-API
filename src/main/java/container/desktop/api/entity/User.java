@@ -82,6 +82,8 @@ public interface User extends Entity, Metadatable {
      * @param role 角色
      */
     void addRole(Role role);
+    void addContainerId(String id);
+    void removeContainerId(String id);
 
 
 

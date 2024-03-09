@@ -69,6 +69,12 @@ public interface ContainerService<C extends Container> extends EntityService<C>{
                   @NotNull String username);
 
     /**
+     * 删除容器
+     * @param containerId 容器ID
+     */
+    void delete(String containerId);
+
+    /**
      * 将该容器连接到某网络
      * @param networkId 要连接的网络ID，该网络的{@literal isAttachable()}属性必须为{@literal true}
      */

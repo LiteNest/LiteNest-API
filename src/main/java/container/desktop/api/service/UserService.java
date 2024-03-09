@@ -4,11 +4,14 @@ import container.desktop.api.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public interface UserService<U extends User> extends EntityService<U>{
 
+    @Nullable
+    User findById(Long id);
     void deleteById(Long id);
     List<? extends User> list();
     Status login(String username, String password);

@@ -43,6 +43,17 @@ public interface Network extends Entity {
     NetworkDriver getNetworkDriver();
 
     /**
+     * 删除网络实体下属容器列表中的容器ID
+     * @param id 容器ID
+     */
+    void removeContainerId(String id);
+
+    /**
+     * 增添网络实体下属容器列表中的容器ID
+     * @param id 容器ID
+     */
+    void addContainerId(String id);
+    /**
      * 获取连接在该网络上的容器的ID
      * @return 连接在该网络上的容器的ID
      */

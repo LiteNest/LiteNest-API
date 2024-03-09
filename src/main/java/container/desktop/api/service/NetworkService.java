@@ -4,6 +4,7 @@ import container.desktop.api.entity.Network;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -12,6 +13,9 @@ public interface NetworkService<N extends Network> extends EntityService<N> {
 
     void flush();
     void flush(String networkId);
+    @Nullable
+    Network findById(String id);
+    List<? extends Network> findAll();
 
     /**
      * 列出所有网络

@@ -41,6 +41,8 @@ public interface Container extends Entity {
 
     PowerStatus getPowerStatus();
 
+    Long getOwnerId();
+
     enum PowerStatus {
         POWER_OFF,
         ACTIVE
