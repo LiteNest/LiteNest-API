@@ -1,17 +1,19 @@
 package container.desktop.api.command;
 
 import container.desktop.api.plugin.Plugin;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-
+@Getter
+@Setter
 public class PluginCommand extends Command {
     private final Plugin owner;
 
-    @Getter
-    @Setter
+
     private CommandExecutor commandExecutor;
 
-    protected PluginCommand(String name, Plugin owner) {
+    public PluginCommand(String name, Plugin owner) {
         super(name);
         this.owner = owner;
     }
