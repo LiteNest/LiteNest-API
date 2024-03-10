@@ -43,8 +43,19 @@ public interface Container extends Entity {
 
     Long getOwnerId();
 
+    void setPowerStatus(PowerStatus powerStatus);
+
     enum PowerStatus {
         POWER_OFF,
-        ACTIVE
+        ACTIVE;
+
+        public static PowerStatus parse(String s) {
+            for (PowerStatus enumConstant : PowerStatus.class.getEnumConstants()) {
+                if (enumConstant.toString().equalsIgnoreCase(s)) {
+                    return enumConstant;
+                }
+            }
+            return null;
+        }
     }
 }
