@@ -7,6 +7,7 @@ import java.util.List;
 public interface ImageService<I extends Image> extends EntityService<I> {
     List<? extends Image> listAll();
     List<? extends Image> listAllPublic();
+    Image findById(String id);
     void flush();
     void pull(String id, boolean wait);
     default void pullAndWait(String id) {
