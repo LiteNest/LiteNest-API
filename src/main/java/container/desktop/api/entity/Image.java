@@ -1,5 +1,7 @@
 package container.desktop.api.entity;
 
+import org.jetbrains.annotations.Nullable;
+
 public interface Image extends Entity {
 
     /**
@@ -35,8 +37,26 @@ public interface Image extends Entity {
     boolean isAvailable();
 
     /**
+     * 设置镜像的可用状态
+     * @param available 镜像的可用状态
+     */
+    void setAvailable(@Nullable Boolean available);
+
+    /**
      * 查询镜像是否为公共镜像
      * @return 是否为公共镜像
      */
     boolean isPublic();
+
+    /**
+     * 设置镜像公开状态
+     * @param _public 镜像公开状态
+     */
+    void setPublic(@Nullable Boolean _public);
+
+    /**
+     * 设置远程桌面端口
+     * @param port 远程桌面端口
+     */
+    void setRemoteDesktopPort(@Nullable Integer port);
 }
