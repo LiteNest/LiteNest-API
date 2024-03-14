@@ -10,6 +10,18 @@ public interface Container extends Entity {
     String getId();
 
     /**
+     * 取出容器实体的自定义名称（云桌面平台定义，并非容器引擎定义）
+     * @return 容器实体的自定义名称
+     */
+    String getCustomName();
+
+    /**
+     * 设置容器实体的自定义名称（云桌面平台定义，并非容器引擎定义）
+     * @param customName 容器实体的自定义名称
+     */
+    void setCustomName(String customName);
+
+    /**
      * 取出容器所用镜像ID
      * @return 镜像ID
      */
@@ -47,6 +59,8 @@ public interface Container extends Entity {
 
     enum PowerStatus {
         POWER_OFF,
+        STOPPING,
+        STARTING,
         ACTIVE;
 
         public static PowerStatus parse(String s) {

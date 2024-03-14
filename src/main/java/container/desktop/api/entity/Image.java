@@ -21,12 +21,30 @@ public interface Image extends Entity {
      * @return 最小的CPU数量
      */
     Integer getMinimumVcpus();
+    void setMinimumVcpus(Integer minimumVcpus);
 
     /**
      * 获取该镜像最小的运行内存数量
      * @return 最小的运行内存数量
      */
     Integer getMinimumRAM();
+    void setMinimumRAM(Integer minimumRAM);
+
+
+    Integer getMinimumRootDisk();
+    void setMinimumRootDisk(Integer minimumRootDisk);
+
+    /**
+     * 获取镜像的描述信息
+     * @return 镜像的描述信息
+     */
+    String getDescription();
+
+    /**
+     * 设置镜像的描述信息
+     * @param description 镜像的描述信息
+     */
+    void setDescription(String description);
 
     /**
      * 获取对外远程桌面端口
