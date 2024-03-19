@@ -15,6 +15,8 @@ public interface Volume extends Entity {
     void setMountPoint(String mountPoint);
     Integer getSize();
     void setSize(Integer size);
+    Long getOwnerId();
+    void setOwnerId(Long ownerId);
 
     interface VolumeBinding {
         String getVolumeId();

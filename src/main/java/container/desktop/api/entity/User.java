@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface User extends Entity, Metadatable {
@@ -84,7 +85,15 @@ public interface User extends Entity, Metadatable {
     void addRole(Role role);
     void addContainerId(String id);
     void removeContainerId(String id);
+    List<String> getVolumeIds();
+    void addVolumeId(String volumeId);
+    void addVolumeIds(Collection<String> volumeIds);
+    void removeVolumeId(String volumeId);
 
+    default boolean hasVolume(String volumeId) {
+        if (getVolumeIds() == null) return false;
+        return getVolumeIds().contains(volumeId);
+    }
 
 
     @RequiredArgsConstructor

@@ -1,6 +1,7 @@
 package container.desktop.api.service;
 
 import container.desktop.api.entity.Volume;
+import container.desktop.api.exception.VolumeInUseException;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -24,7 +25,8 @@ public interface VolumeService<V extends Volume> extends EntityService<V> {
      * @param size 容量，单位为GB
      * @return 卷的ID
      */
-    String create(Integer size);
+    String create(Integer size, Long userId);
 
-    String create(Integer size, String customName);
+    String create(Integer size, String customName, Long userId);
+    void delete(String id) throws VolumeInUseException;
 }
