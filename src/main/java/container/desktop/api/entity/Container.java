@@ -1,5 +1,6 @@
 package container.desktop.api.entity;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface Container extends Entity {
@@ -37,6 +38,7 @@ public interface Container extends Entity {
     void setDataVolumeIds(List<String> dataVolumeIds);
     void addDataVolumeId(String volumeId);
     void removeDataVolumeId(String volumeId);
+    void addDataVolumeIds(Collection<String> ids);
 
     /**
      * 取出容器所具有的虚拟处理器数量

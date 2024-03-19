@@ -10,4 +10,9 @@ public interface Volume extends Entity {
     void setMountPoint(String mountPoint);
     Integer getSize();
     void setSize(Integer size);
+
+    interface VolumeBinding {
+        String getVolumeId();
+        String getMountPath();
+    }
 }
