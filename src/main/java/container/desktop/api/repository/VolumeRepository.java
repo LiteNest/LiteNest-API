@@ -5,7 +5,7 @@ import container.desktop.api.entity.Volume;
 import java.util.List;
 import java.util.Optional;
 
-public interface VolumeRepository<V extends Volume> {
+public interface VolumeRepository<V extends Volume> extends Repository<V> {
     Optional<V> findById(String id);
     List<? extends Volume> findByIdIn(List<String> ids);
     List<? extends Volume> findByIdIn(String... ids);

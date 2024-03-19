@@ -11,7 +11,7 @@ public interface VolumeService<V extends Volume> extends EntityService<V> {
     @Nullable
     Volume findById(String id);
 
-    List<? extends Volume> findByIds();
+    List<? extends Volume> findByIds(List<String> ids);
 
     /**
      * 通过ID删除卷
@@ -25,4 +25,6 @@ public interface VolumeService<V extends Volume> extends EntityService<V> {
      * @return 卷的ID
      */
     String create(Integer size);
+
+    String create(Integer size, String customName);
 }
