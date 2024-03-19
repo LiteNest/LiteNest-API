@@ -61,6 +61,8 @@ public interface Container extends Entity {
     Long getOwnerId();
 
     void setPowerStatus(PowerStatus powerStatus);
+    Integer getPort();
+    void setPort(Integer port);
 
     enum PowerStatus {
         POWER_OFF,
