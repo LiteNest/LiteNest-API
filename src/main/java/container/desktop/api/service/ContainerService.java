@@ -85,6 +85,16 @@ public interface ContainerService<C extends Container> extends EntityService<C>{
                   @NotNull String username,
                   List<Volume.VolumeBinding> volumeIds) throws ContainerCreationException;
 
+    String create(String customName,
+                  String imageId,
+                  String networkId,
+                  Integer rootDisk,
+                  Integer vcpu,
+                  Integer RAM,
+                  String command,
+                  @NotNull String username,
+                  List<Volume.VolumeBinding> volumeIds) throws ContainerCreationException;
+
     /**
      * 删除容器
      * @param containerId 容器ID
