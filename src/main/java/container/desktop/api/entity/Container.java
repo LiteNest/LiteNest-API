@@ -33,6 +33,11 @@ public interface Container extends Entity {
      */
     Integer getRootDisk();
 
+    List<String> getDataVolumeIds();
+    void setDataVolumeIds(List<String> dataVolumeIds);
+    void addDataVolumeId(String volumeId);
+    void removeDataVolumeId(String volumeId);
+
     /**
      * 取出容器所具有的虚拟处理器数量
      * @return 虚拟处理器数量
