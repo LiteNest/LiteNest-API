@@ -29,4 +29,5 @@ public interface VolumeService<V extends Volume> extends EntityService<V> {
 
     String create(Integer size, String customName, Long userId);
     void delete(String id) throws VolumeInUseException;
+    String resize(String id, Integer size, Long userId);
 }
