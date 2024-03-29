@@ -3,7 +3,7 @@ package container.desktop.api.entity;
 import java.util.Collection;
 import java.util.List;
 
-public interface Volume extends Entity {
+public interface Volume extends Entity, Cloneable {
     String getId();
     String getCustomName();
     void setCustomName(String customName);

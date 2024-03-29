@@ -31,7 +31,7 @@ public interface User extends Entity, Metadatable {
      * 获取用户的ID
      * @return 用户ID
      */
-    Long getId();
+    java.lang.Long getId();
 
     /**
      * 获取用户所拥有的角色列表
