@@ -8,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ContainerService<C extends Container> extends EntityService<C>{
 
@@ -85,6 +86,18 @@ public interface ContainerService<C extends Container> extends EntityService<C>{
                   @NotNull String username,
                   List<Volume.VolumeBinding> volumeIds) throws ContainerCreationException;
 
+    String create(String name,
+                  String customName,
+                  String imageId,
+                  String networkId,
+                  Integer rootDisk,
+                  Integer vcpu,
+                  Integer RAM,
+                  String command,
+                  @NotNull String username,
+                  Map<String, String> env,
+                  List<Volume.VolumeBinding> volumeIds) throws ContainerCreationException;
+
     String create(String customName,
                   String imageId,
                   String networkId,
@@ -93,6 +106,17 @@ public interface ContainerService<C extends Container> extends EntityService<C>{
                   Integer RAM,
                   String command,
                   @NotNull String username,
+                  List<Volume.VolumeBinding> volumeIds) throws ContainerCreationException;
+
+    String create(String customName,
+                  String imageId,
+                  String networkId,
+                  Integer rootDisk,
+                  Integer vcpu,
+                  Integer RAM,
+                  String command,
+                  @NotNull String username,
+                  Map<String, String> env,
                   List<Volume.VolumeBinding> volumeIds) throws ContainerCreationException;
 
     /**
