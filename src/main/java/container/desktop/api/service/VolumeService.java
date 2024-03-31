@@ -10,7 +10,6 @@ import java.util.List;
 
 public interface VolumeService<V extends Volume> extends EntityService<V> {
     List<? extends Volume> list();
-
     @Nullable
     Volume findById(String id);
 

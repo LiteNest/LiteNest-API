@@ -3,7 +3,7 @@ package container.desktop.api.exception;
 import lombok.Getter;
 
 @Getter
-public class IllegalVolumeSizeException extends Exception {
+public class IllegalVolumeSizeException extends RuntimeException {
     private final Integer expectSize;
     private final String volumeId;
 

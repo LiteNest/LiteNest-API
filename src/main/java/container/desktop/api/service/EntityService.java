@@ -1,6 +1,7 @@
 package container.desktop.api.service;
 
 import container.desktop.api.entity.Entity;
+import container.desktop.api.exception.ResourceNotFoundException;
 import container.desktop.api.exception.UpdatingException;
 
 public interface EntityService<E extends Entity> {
@@ -11,5 +12,5 @@ public interface EntityService<E extends Entity> {
      * 但实际受到执行过程的影响
      * @param entity 实体
      */
-    void update(E entity) throws UpdatingException;
+    void update(E entity) throws UpdatingException, ResourceNotFoundException;
 }

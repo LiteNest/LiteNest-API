@@ -1,4 +1,4 @@
 package container.desktop.api.exception;
 
-public class ResourceNotFoundException extends Exception {
+public class ResourceNotFoundException extends RuntimeException {
 }
