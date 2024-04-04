@@ -23,6 +23,7 @@ public interface Network extends Entity {
      * @return 该网络是否可用
      */
     boolean isAvailable();
+    void setAvailable(boolean available);
 
     /**
      * 获取网络的地址
@@ -65,6 +66,7 @@ public interface Network extends Entity {
      */
     boolean isAttachable();
     boolean isShown();
+    void setShown(boolean shown);
 
     /**
      * 网络驱动器模式枚举类
