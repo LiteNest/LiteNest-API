@@ -6,6 +6,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 public interface User extends Entity, Metadatable {
 
@@ -85,7 +86,7 @@ public interface User extends Entity, Metadatable {
     void addRole(Role role);
     void addContainerId(String id);
     void removeContainerId(String id);
-    List<String> getVolumeIds();
+    Set<String> getVolumeIds();
     void addVolumeId(String volumeId);
     void addVolumeIds(Collection<String> volumeIds);
     void removeVolumeId(String volumeId);
