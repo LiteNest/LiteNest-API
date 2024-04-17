@@ -6,4 +6,5 @@ import java.util.Optional;
 
 public interface ImageRepository<I extends Image> extends Repository<I> {
     Optional<I> findById(String id);
+    void deleteById(String id);
 }

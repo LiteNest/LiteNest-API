@@ -1,5 +1,6 @@
 package container.desktop.api.entity;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface Container extends Entity {
@@ -8,6 +9,18 @@ public interface Container extends Entity {
      * @return 容器ID
      */
     String getId();
+
+    /**
+     * 取出容器实体的自定义名称（云桌面平台定义，并非容器引擎定义）
+     * @return 容器实体的自定义名称
+     */
+    String getCustomName();
+
+    /**
+     * 设置容器实体的自定义名称（云桌面平台定义，并非容器引擎定义）
+     * @param customName 容器实体的自定义名称
+     */
+    void setCustomName(String customName);
 
     /**
      * 取出容器所用镜像ID
@@ -20,6 +33,12 @@ public interface Container extends Entity {
      * @return 根磁盘大小
      */
     Integer getRootDisk();
+
+    List<String> getDataVolumeIds();
+    void setDataVolumeIds(List<String> dataVolumeIds);
+    void addDataVolumeId(String volumeId);
+    void removeDataVolumeId(String volumeId);
+    void addDataVolumeIds(Collection<String> ids);
 
     /**
      * 取出容器所具有的虚拟处理器数量
@@ -43,8 +62,23 @@ public interface Container extends Entity {
 
     Long getOwnerId();
 
+    void setPowerStatus(PowerStatus powerStatus);
+    Integer getPort();
+    void setPort(Integer port);
+
     enum PowerStatus {
         POWER_OFF,
-        ACTIVE
+        STOPPING,
+        STARTING,
+        ACTIVE;
+
+        public static PowerStatus parse(String s) {
+            for (PowerStatus enumConstant : PowerStatus.class.getEnumConstants()) {
+                if (enumConstant.toString().equalsIgnoreCase(s)) {
+                    return enumConstant;
+                }
+            }
+            return null;
+        }
     }
 }

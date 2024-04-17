@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface UserRepository<U extends User> extends Repository<U> {
     Optional<U> findByUsername(String username);
-    Optional<U> findById(Long Id);
-    void deleteById(Long id);
+    Optional<U> findById(java.lang.Long Id);
+    void deleteById(java.lang.Long id);
     void deleteByUsername(String username);
 }

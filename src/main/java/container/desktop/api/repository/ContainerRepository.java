@@ -10,4 +10,5 @@ public interface ContainerRepository<C extends Container> extends Repository<C> 
     Optional<C> findById(String id);
     List<? extends Container> findByIdIn(Collection<String> ids);
     void deleteAllByIdInBatch(Iterable<String> ids);
+    Optional<C> findByPort(Integer port);
 }

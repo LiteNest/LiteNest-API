@@ -13,6 +13,7 @@ public class ContainerCreationException extends Exception {
 
     public enum Reason {
         USING_NON_PUBLIC_IMAGE,
+        INSUFFICIENT_MINIMUM_REQUIREMENTS,
         UNKNOWN
     }
 }

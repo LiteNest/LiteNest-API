@@ -4,7 +4,9 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 public interface User extends Entity, Metadatable {
 
@@ -30,7 +32,7 @@ public interface User extends Entity, Metadatable {
      * 获取用户的ID
      * @return 用户ID
      */
-    Long getId();
+    java.lang.Long getId();
 
     /**
      * 获取用户所拥有的角色列表
@@ -84,7 +86,15 @@ public interface User extends Entity, Metadatable {
     void addRole(Role role);
     void addContainerId(String id);
     void removeContainerId(String id);
+    Set<String> getVolumeIds();
+    void addVolumeId(String volumeId);
+    void addVolumeIds(Collection<String> volumeIds);
+    void removeVolumeId(String volumeId);
 
+    default boolean hasVolume(String volumeId) {
+        if (getVolumeIds() == null) return false;
+        return getVolumeIds().contains(volumeId);
+    }
 
 
     @RequiredArgsConstructor

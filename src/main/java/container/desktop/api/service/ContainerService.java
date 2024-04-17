@@ -1,13 +1,14 @@
 package container.desktop.api.service;
 
 import container.desktop.api.entity.Container;
+import container.desktop.api.entity.Volume;
 import container.desktop.api.exception.ContainerCreationException;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Map;
 
 public interface ContainerService<C extends Container> extends EntityService<C>{
 
@@ -35,15 +36,18 @@ public interface ContainerService<C extends Container> extends EntityService<C>{
     /**
      * 创建容器
      * @param name 容器名称
+     * @param customName 容器实体的自定义名称
      * @param imageId 容器镜像ID
      * @param networkId 容器网络ID
      * @param rootDisk 跟磁盘大小
      * @param vcpu 虚拟处理器数量
      * @param RAM 运行内存
      * @param command 启动命令
+     * @param username 容器所属用户名
      * @return 容器ID
      */
     String create(String name,
+                String customName,
                 String imageId,
                 String networkId,
                 Integer rootDisk,
@@ -54,6 +58,7 @@ public interface ContainerService<C extends Container> extends EntityService<C>{
     /**
      * 创建容器
      * @param imageId 容器镜像ID
+     * @param customName 容器实体的自定义名称
      * @param networkId 容器网络ID
      * @param rootDisk 跟磁盘大小
      * @param vcpu 虚拟处理器数量
@@ -61,13 +66,58 @@ public interface ContainerService<C extends Container> extends EntityService<C>{
      * @param command 启动命令
      * @return 容器ID
      */
-    String create(String imageId,
+    String create(String customName,
+                  String imageId,
                   String networkId,
                   Integer rootDisk,
                   Integer vcpu,
                   Integer RAM,
                   String command,
                   @NotNull String username) throws ContainerCreationException;
+
+    String create(String name,
+                  String customName,
+                  String imageId,
+                  String networkId,
+                  Integer rootDisk,
+                  Integer vcpu,
+                  Integer RAM,
+                  String command,
+                  @NotNull String username,
+                  List<Volume.VolumeBinding> volumeIds) throws ContainerCreationException;
+
+    String create(String name,
+                  String customName,
+                  String imageId,
+                  String networkId,
+                  Integer rootDisk,
+                  Integer vcpu,
+                  Integer RAM,
+                  String command,
+                  @NotNull String username,
+                  Map<String, String> env,
+                  List<Volume.VolumeBinding> volumeIds) throws ContainerCreationException;
+
+    String create(String customName,
+                  String imageId,
+                  String networkId,
+                  Integer rootDisk,
+                  Integer vcpu,
+                  Integer RAM,
+                  String command,
+                  @NotNull String username,
+                  List<Volume.VolumeBinding> volumeIds) throws ContainerCreationException;
+
+    String create(String customName,
+                  String imageId,
+                  String networkId,
+                  Integer rootDisk,
+                  Integer vcpu,
+                  Integer RAM,
+                  String command,
+                  @NotNull String username,
+                  Map<String, String> env,
+                  List<Volume.VolumeBinding> volumeIds) throws ContainerCreationException;
 
     /**
      * 删除容器
@@ -80,6 +130,8 @@ public interface ContainerService<C extends Container> extends EntityService<C>{
      * @param networkId 要连接的网络ID，该网络的{@literal isAttachable()}属性必须为{@literal true}
      */
     void attachTo(String networkId);
+
+    Integer getMaxVCPUs();
 
     @RequiredArgsConstructor
     class NetworkNotAttachableException extends RuntimeException {
